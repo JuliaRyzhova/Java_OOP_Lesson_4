@@ -102,8 +102,12 @@ public class GBLinkedList<T> implements GBList<T>, GBDeque<T> {
 
     @Override
     public void remove(int index) {
-        checkPositionIndex(index);
-        unlink(node(index));
+        try {
+            checkPositionIndex(index);
+            unlink(node(index));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     T unlink(Node<T> x) {
